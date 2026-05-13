@@ -9,10 +9,16 @@ on:
       - "docs/**"
       - "README.md"
 
+permissions:
+  contents: write
+  actions: write
+
 jobs:
   build:
     uses: ./.github/workflows/flutter-build.yml
     secrets: inherit
+    permissions:
+      contents: write
     with:
       upload-artifact: true
       upload-tag: "ribeiro-latest"
