@@ -122,6 +122,15 @@ impl Drop for SimpleCallOnReturn {
 }
 
 pub fn global_init() -> bool {
+    // Ribeiro, Lda - Remote Support branding
+    *hbb_common::config::APP_NAME.write().unwrap() = "Ribeiro Remote".to_owned();
+    *hbb_common::config::PROD_RENDEZVOUS_SERVER.write().unwrap() = "204.168.178.131".to_owned();
+    {
+        let mut s = hbb_common::config::OVERWRITE_SETTINGS.write().unwrap();
+        s.insert("custom-rendezvous-server".to_owned(), "204.168.178.131".to_owned());
+        s.insert("relay-server".to_owned(), "204.168.178.131".to_owned());
+        s.insert("key".to_owned(), "lAd02MARYZbn2QptijJyRfBmR8MYlrXe1zcrkwfBWnU=".to_owned());
+    }
     #[cfg(target_os = "linux")]
     {
         if !crate::platform::linux::is_x11() {
