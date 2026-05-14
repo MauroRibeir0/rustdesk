@@ -130,6 +130,7 @@ pub fn global_init() -> bool {
         s.insert("custom-rendezvous-server".to_owned(), "204.168.178.131".to_owned());
         s.insert("relay-server".to_owned(), "204.168.178.131".to_owned());
         s.insert("key".to_owned(), "lAd02MARYZbn2QptijJyRfBmR8MYlrXe1zcrkwfBWnU=".to_owned());
+        s.insert("api-server".to_owned(), "http://204.168.178.131:21114".to_owned());
     }
     #[cfg(target_os = "linux")]
     {
